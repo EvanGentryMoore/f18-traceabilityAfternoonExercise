@@ -5,7 +5,7 @@ const app = express()
 
 
 app.get('/', (req, res) => {
-    res.sendFiles(path.join(__dirname, '../public/index.html'))
+    res.sendFile(path.join(__dirname, '../public/index.html'))
 })
 
 
