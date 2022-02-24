@@ -9,7 +9,7 @@ const rollbar = new Rollbar({
   captureUnhandledRejections: true
 });
 
-rollbar(try {
+rollbar.try {
     nonExistentFunction();
   } catch (error) {
     console.error(error);
