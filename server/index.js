@@ -9,7 +9,15 @@ const rollbar = new Rollbar({
   captureUnhandledRejections: true
 });
 
-// record a generic message and send it to Rollbar
+rollbar(try {
+    nonExistentFunction();
+  } catch (error) {
+    console.error(error);
+    // expected output: ReferenceError: nonExistentFunction is not defined
+    // Note - error messages will vary depending on browser
+  }
+)
+  
 
 const app = express()
 
@@ -17,8 +25,6 @@ const app = express()
 app.get('/', (req, res) => {
     res.sendFile(path.join(__dirname, '../public/index.html'))
 })
-
-rollbar.log("Hello world!");
 
 const port = process.env.PORT || 8534
 
