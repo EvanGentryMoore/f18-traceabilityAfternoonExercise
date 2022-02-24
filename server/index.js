@@ -21,7 +21,7 @@ app.get('/', (req, res) => {
     try {
         nonExistentFunction();
       } catch (error) {
-        console.error(error);
+        console.error('This was on purpose:' + error);
         // expected output: ReferenceError: nonExistentFunction is not defined
         // Note - error messages will vary depending on browser
       }
