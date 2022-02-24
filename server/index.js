@@ -16,7 +16,8 @@ app.get('/', (req, res) => {
     res.sendFile(path.join(__dirname, '../public/index.html'))
 })
 
-app.get('/fail', (req, res) => {
+app.get('/', (req, res) => {
+    res.sendFile(path.join(__dirname, '../public/fail'))
     try {
         nonExistentFunction();
       } catch (error) {
@@ -24,7 +25,9 @@ app.get('/fail', (req, res) => {
         // expected output: ReferenceError: nonExistentFunction is not defined
         // Note - error messages will vary depending on browser
       }
+      
 })
+
 
 const port = process.env.PORT || 8534
 
